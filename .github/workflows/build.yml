@@ -33,11 +33,41 @@ jobs:
       - name: Check Lean source requirements
         run: python3 scripts/check-lean-sources.py
       - name: Check for unfinished proofs outside the Challenges
+        # Comments and string literals are removed first, so prose such as "admit" in a docstring
+        # is not mistaken for a tactic.
         run: |
-          if grep -rnwE 'sorry|admit|axiom' --include='*.lean' DOZZ GaussianFields DOZZ.lean GaussianFields.lean comparators/*/Solution.lean \
-              | grep -vE '^[^:]+:[0-9]+:\s*(--|/-|.*-/\s*$)'; then
-            echo "unexpected sorry/admit/axiom" >&2; exit 1
-          fi
+          python3 - <<'PY'
+          import pathlib, re, sys
+          roots = [pathlib.Path(p) for p in ("DOZZ", "GaussianFields", "DOZZ.lean", "GaussianFields.lean")]
+          files = [f for r in roots for f in ([r] if r.is_file() else sorted(r.rglob("*.lean")))]
+          files += sorted(pathlib.Path("comparators").glob("*/Solution.lean"))
+          def code_only(text):
+              out, i, depth, n = [], 0, 0, len(text)
+              while i < n:
+                  if text.startswith("/-", i):
+                      depth += 1; i += 2; continue
+                  if depth and text.startswith("-/", i):
+                      depth -= 1; i += 2; continue
+                  if depth:
+                      out.append("\n" if text[i] == "\n" else " "); i += 1; continue
+                  if text.startswith("--", i):
+                      j = text.find("\n", i); i = n if j < 0 else j; continue
+                  if text[i] == '"':
+                      j = i + 1
+                      while j < n and text[j] != '"':
+                          j += 2 if text[j] == "\\" else 1
+                      out.append('""'); i = j + 1; continue
+                  out.append(text[i]); i += 1
+              return "".join(out)
+          bad = 0
+          for f in files:
+              for k, line in enumerate(code_only(f.read_text()).splitlines(), 1):
+                  if re.search(r"\b(sorry|admit)\b", line) or re.match(r"\s*(@\[[^]]*\]\s*)?((private|protected|noncomputable)\s+)*axiom\s", line):
+                      print(f"{f}:{k}: {line.strip()}"); bad += 1
+          if bad:
+              sys.exit("unexpected sorry/admit/axiom")
+          print(f"checked {len(files)} files: no sorry, admit or axiom")
+          PY
       - uses: leanprover/lean-action@38fbc41a8c28c4cbaec22d7f7de508ec2e7c0dd9
         with:
           build: true
