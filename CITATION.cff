@@ -1,0 +1,104 @@
+cff-version: 1.2.0
+message: "If you use this formalization, please cite it as below."
+title: "DOZZ: a Lean 4 formalization of the Kupiainen–Rhodes–Vargas proof of the DOZZ formula"
+abstract: >-
+  A machine-checked Lean 4 / Mathlib formalization of the theorem of
+  Kupiainen, Rhodes and Vargas that the three-point structure constants of
+  Liouville conformal field theory on the Riemann sphere, defined through the
+  Gaussian free field and Gaussian multiplicative chaos, are given by the
+  DOZZ formula; together with the identification of the reflection
+  coefficient, the construction and moment theory of Gaussian multiplicative
+  chaos and the extended Seiberg bounds of David, Kupiainen, Rhodes and
+  Vargas, and the BPZ equations of Kupiainen, Rhodes and Vargas.
+  The library and the comparator solutions contain no sorry and no custom axiom.
+type: software
+version: "1.0.0"
+authors:
+  - family-names: Armstrong
+    given-names: Scott
+    affiliation: "CNRS and Laboratoire Jacques-Louis Lions, Sorbonne Université; Courant Institute School of Mathematics, Computing, and Data Science, New York University"
+  - family-names: Loher
+    given-names: Amélie
+    affiliation: "All Souls College, University of Oxford"
+keywords:
+  - Lean
+  - Mathlib
+  - formal verification
+  - Liouville conformal field theory
+  - DOZZ formula
+  - Gaussian multiplicative chaos
+  - Gaussian free field
+  - BPZ equations
+license: Apache-2.0
+repository-code: "https://github.com/scottnarmstrong/DOZZ"
+references:
+  - type: article
+    title: "Integrability of Liouville theory: proof of the DOZZ formula"
+    authors:
+      - family-names: Kupiainen
+        given-names: Antti
+      - family-names: Rhodes
+        given-names: Rémi
+      - family-names: Vargas
+        given-names: Vincent
+    journal: "Annals of Mathematics"
+    volume: 191
+    issue: 1
+    start: 81
+    end: 166
+    year: 2020
+    doi: 10.4007/annals.2020.191.1.2
+  - type: article
+    title: "Liouville quantum gravity on the Riemann sphere"
+    authors:
+      - family-names: David
+        given-names: François
+      - family-names: Kupiainen
+        given-names: Antti
+      - family-names: Rhodes
+        given-names: Rémi
+      - family-names: Vargas
+        given-names: Vincent
+    journal: "Communications in Mathematical Physics"
+    volume: 342
+    start: 869
+    end: 907
+    year: 2016
+    doi: 10.1007/s00220-016-2572-4
+  - type: article
+    title: "Local conformal structure of Liouville quantum gravity"
+    authors:
+      - family-names: Kupiainen
+        given-names: Antti
+      - family-names: Rhodes
+        given-names: Rémi
+      - family-names: Vargas
+        given-names: Vincent
+    journal: "Communications in Mathematical Physics"
+    volume: 371
+    start: 1005
+    end: 1069
+    year: 2019
+    doi: 10.1007/s00220-018-3260-3
+  - type: article
+    title: "An elementary approach to Gaussian multiplicative chaos"
+    authors:
+      - family-names: Berestycki
+        given-names: Nathanaël
+    journal: "Electronic Communications in Probability"
+    volume: 22
+    year: 2017
+    doi: 10.1214/17-ECP58
+  - type: article
+    title: "Gaussian multiplicative chaos and applications: a review"
+    authors:
+      - family-names: Rhodes
+        given-names: Rémi
+      - family-names: Vargas
+        given-names: Vincent
+    journal: "Probability Surveys"
+    volume: 11
+    start: 315
+    end: 392
+    year: 2014
+    doi: 10.1214/13-PS218

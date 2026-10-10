@@ -1,0 +1,255 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/formalization.schema.json
+version: "v0.4"
+
+project:
+  name: "Integrability of Liouville theory: the Kupiainen–Rhodes–Vargas proof of the DOZZ formula"
+  description: >-
+    A Lean 4 / Mathlib formalization of the theorem of A. Kupiainen, R. Rhodes
+    and V. Vargas (Annals of Mathematics, 2020) that the three-point structure
+    constants of Liouville conformal field theory on the Riemann sphere are
+    given by the DOZZ formula of Dorn–Otto and Zamolodchikov–Zamolodchikov.
+    The structure constants are defined probabilistically: for 0 < gamma < 2,
+    cosmological constant mu > 0 and charges satisfying the extended Seiberg
+    bounds, C_gamma(alpha_1, alpha_2, alpha_3) = 2 mu^(-s) gamma^(-1) Gamma(s)
+    E[rho^(-s)], where rho integrates explicit power weights against the
+    Gaussian multiplicative chaos of the Gaussian free field pinned on the
+    equator. The formalization proves C_gamma = C_gamma^DOZZ, expressed through
+    the Zamolodchikov function Upsilon_{gamma/2}, at every point of the domain
+    where Gamma(s) is finite, and at every point including the poles for the
+    unit-volume constant; and it proves that the probabilistic reflection
+    coefficient, built from Brownian motion conditioned to stay negative and
+    lateral chaos, equals R^DOZZ (Theorem 3.5). The theorems hold for every
+    model of the field and chaos, and models are constructed. All
+    prerequisites are proved: the construction, uniqueness and moment theory
+    of Gaussian multiplicative chaos and the extended Seiberg bounds (David,
+    Kupiainen, Rhodes and Vargas, 2016); the BPZ equations for degenerate
+    four-point functions and the classification of their real single-valued
+    solutions by the Gauss hypergeometric function (Kupiainen, Rhodes and
+    Vargas, 2019); analytic continuation of correlation functions, tail
+    estimates for multiplicative chaos, fusion asymptotics, the shift
+    equations and the quotient argument. Errata found in the three papers,
+    and the places where the Lean statements differ from them, are recorded in
+    docs/ERRATA-AND-DEVIATIONS.md.
+  authors:
+    - "Scott Armstrong"
+    - "Amélie Loher"
+  responsible_maintainers:
+    - "Scott Armstrong"
+    - "Amélie Loher"
+  affiliations:
+    - "Scott Armstrong: CNRS and Laboratoire Jacques-Louis Lions, Sorbonne Université; Courant Institute School of Mathematics, Computing, and Data Science, New York University"
+    - "Amélie Loher: All Souls College, University of Oxford"
+  license: "Apache-2.0"
+  funding:
+    - "Scott Armstrong was supported by the European Research Council (ERC) under the European Union's Horizon Europe research and innovation programme, grant agreement No. 101200828."
+    - "Amélie Loher acknowledges support from the Fondation Sciences Mathématiques de Paris."
+
+classification:
+  arxiv: ["math.PR", "math-ph", "math.MP", "hep-th"]
+  msc2020: ["60G60", "60G57", "81T40", "60J65", "33C05", "33B15"]
+
+sources:
+  - title: "Integrability of Liouville theory: proof of the DOZZ formula"
+    authors:
+      - "Antti Kupiainen"
+      - "Rémi Rhodes"
+      - "Vincent Vargas"
+    type: "article"
+    location: "Annals of Mathematics 191 (2020), 81-166; arXiv:1707.08785"
+    relationship: "formalizes"
+    note: "Theorem 2.4 (the DOZZ formula) and Theorem 3.5 (the reflection coefficient), with the intermediate results of Sections 3 and 6-12. Numbering refers to the arXiv version. Thirty errata are corrected (docs/ERRATA-AND-DEVIATIONS.md)."
+    license: "all rights reserved"
+    author_endorsement: "not-contacted"
+  - title: "Liouville quantum gravity on the Riemann sphere"
+    authors:
+      - "François David"
+      - "Antti Kupiainen"
+      - "Rémi Rhodes"
+      - "Vincent Vargas"
+    type: "article"
+    location: "Communications in Mathematical Physics 342 (2016), 869-907; arXiv:1410.7318"
+    relationship: "formalizes"
+    note: "The parts used by the DOZZ proof: the chaos and its moments, the extended Seiberg bounds (Lemma 3.10) and Möbius covariance, for the equator-pinned field. The Liouville field on a general metric, the Weyl anomaly and gamma >= 2 are not formalized."
+    license: "all rights reserved"
+    author_endorsement: "not-contacted"
+  - title: "Local conformal structure of Liouville quantum gravity"
+    authors:
+      - "Antti Kupiainen"
+      - "Rémi Rhodes"
+      - "Vincent Vargas"
+    type: "article"
+    location: "Communications in Mathematical Physics 371 (2019), 1005-1069; arXiv:1512.01802"
+    relationship: "formalizes"
+    note: "The BPZ equations for degenerate four-point functions, the classification of real single-valued hypergeometric solutions (Lemma 4.4, corrected) and the restricted fusion asymptotics (Lemma 4.5). The Ward identities are not formalized; the DOZZ proof does not use them."
+    license: "all rights reserved"
+    author_endorsement: "not-contacted"
+  - title: "An elementary approach to Gaussian multiplicative chaos"
+    authors:
+      - "Nathanaël Berestycki"
+    type: "article"
+    location: "Electronic Communications in Probability 22 (2017), paper 27"
+    relationship: "adapts"
+    note: "The good-point argument for the existence and uniqueness of the chaos measure."
+    license: "CC-BY-4.0"
+    author_endorsement: "not-contacted"
+  - title: "Gaussian multiplicative chaos and applications: a review"
+    authors:
+      - "Rémi Rhodes"
+      - "Vincent Vargas"
+    type: "article"
+    location: "Probability Surveys 11 (2014), 315-392"
+    relationship: "background"
+    note: "Kahane's convexity inequality and moment bounds."
+    license: "CC-BY-4.0"
+    author_endorsement: "not-contacted"
+  - title: "Brownian motion in Lean"
+    authors:
+      - "Rémy Degenne"
+    type: "software"
+    location: "https://github.com/RemyDegenne/brownian-motion"
+    relationship: "adapts"
+    note: "The Kolmogorov-Chentsov continuity theorem is adapted from this project, with its copyright notices."
+    license: "Apache-2.0"
+    author_endorsement: "n/a"
+
+status:
+  scope: >-
+    Complete for the DOZZ formula of Kupiainen, Rhodes and Vargas (Theorem 2.4)
+    on the extended Seiberg domain, for all 0 < gamma < 2 and mu > 0, with the
+    unit-volume form at every point including the poles of Gamma(s), and for
+    the identification of the reflection coefficient (Theorem 3.5). The
+    structure constant is the moment formula for the Gaussian multiplicative
+    chaos of the equator-pinned field; for s > 0 it is also proved to be the
+    limit of the finite-position three-point moment formula as the third
+    insertion goes to infinity. The Liouville path integral and its
+    regularized vertex operators are not formalized, nor are the Ward
+    identities and stress-energy tensor of Kupiainen, Rhodes and Vargas
+    (2019), and the Liouville field on a general metric, the Weyl anomaly
+    and gamma >= 2 of David, Kupiainen, Rhodes and Vargas (2016).
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms: ["propext", "Classical.choice", "Quot.sound"]
+  main_results:
+    - declaration: "DOZZ.dozz_main"
+      file: "DOZZ/Statements/Roots/DozzMain.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: "comparators/DOZZ/comparator.json"
+      literature_dependencies: []
+    - declaration: "DOZZ.dozz_unitVolume"
+      file: "DOZZ/Statements/Roots/DozzUnitVolume.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: "comparators/DOZZ/comparator.json"
+      literature_dependencies: []
+    - declaration: "DOZZ.dozz_existence"
+      file: "DOZZ/Statements/Roots/DozzExistence.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: "comparators/DOZZ/comparator.json"
+      literature_dependencies: []
+    - declaration: "DOZZ.reflection_Rtheor_off_poles"
+      file: "DOZZ/Statements/Brownian/ReflectionRtheorOffPoles.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: "comparators/Reflection/comparator.json"
+      literature_dependencies: []
+    - declaration: "DOZZ.reflection_Rtheor_punctured"
+      file: "DOZZ/Statements/Brownian/ReflectionRtheorPunctured.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: "comparators/Reflection/comparator.json"
+      literature_dependencies: []
+
+automation:
+  methods:
+    - method: "agent"
+      models:
+        - "gpt-6.1-sol"
+        - "gpt-6-luna"
+        - "claude-opus-5-5"
+        - "claude-sonnet-5-5"
+      framework: >-
+        Codex (GPT-6.1 Sol, GPT-6 Luna) and Claude Code (Claude Opus 5.5
+        coordinating, Claude Sonnet 5.5), under the authors' supervision.
+      tool_setup: >-
+        Lean 4 and Mathlib v4.35.0-rc2. A dependency graph of the papers'
+        results was built first; every public definition and theorem
+        statement was written, compared with the sources by an independent
+        model review, and approved by the authors before its proof was
+        developed. Verification uses full builds from a clean checkout, axiom
+        checks, and Mathlib-only comparator challenges checked with Lean's
+        comparator and the independent kernel checkers bundled with the
+        toolchain.
+      cost:
+        wall_time: "about three days of development (October 2026) plus release preparation"
+        spend_usd: "not separately tracked (ChatGPT Pro and Claude Max subscriptions)"
+        hardware: "one 8-CPU / 30 GB RAM Linux machine"
+      prompting_notes: >-
+        The authors determined the scope and the statements, ruled on every
+        deviation from the printed statements, and approved every public
+        statement. Errata and gaps in the printed proofs were identified and
+        repaired by arguments proposed by the models and checked by separate
+        model reviews and numerical checks before they were formalized.
+  spend_usd: "not separately tracked (ChatGPT Pro and Claude Max subscriptions)"
+  notes: >-
+    All Lean code was written by the listed models under the supervision of
+    the authors. Every proof is checked by the Lean kernel; the library
+    contains no sorry and no custom axiom. The comparator Challenge files
+    contain one intentional theorem-body placeholder per theorem, proved by
+    the corresponding Solution files.
+
+fidelity:
+  divergences: >-
+    The structure constant is the Gaussian multiplicative chaos moment
+    formula of the paper; the path-integral definition is not formalized.
+    At the poles of Gamma(s) the paper sets correlations to infinity; the
+    formalization instead states the unit-volume identity at every point as a
+    limit. The field, the chaos and Upsilon_{gamma/2} are characterized by
+    predicates, theorems hold for every model, and existence and uniqueness
+    are separate theorems. Identities between meromorphic functions are
+    stated off discrete exceptional sets, as Mathlib's Gamma function takes
+    the value 0 at its poles. "Small enough" parameters are replaced by
+    explicit windows. The quotient argument of the last section is completed
+    without comparing zeros and poles, and the normalization is fixed at
+    s = 0. Thirty errata of the main paper, seventeen of David, Kupiainen,
+    Rhodes and Vargas (2016) and sixteen of Kupiainen, Rhodes and Vargas
+    (2019) are corrected. All deviations are listed in
+    docs/ERRATA-AND-DEVIATIONS.md.
+
+review:
+  status: "author-verified"
+  reviewers:
+    - "Scott Armstrong"
+    - "Amélie Loher"
+  notes: >-
+    Lean checks each proof against its formal statement. The authors reviewed
+    that the statements are the intended theorems. Each public statement was
+    compared with the sources by independent model reviews before its proof
+    was accepted, and the comparator declarations are checked mechanically.
+    This is not external peer review.
+
+alignment:
+  - source: "Kupiainen-Rhodes-Vargas (2020), Theorem 2.4"
+    lean: "DOZZ.dozz_main"
+    note: "C_gamma = C_gamma^DOZZ on the extended Seiberg domain where Gamma(s) is finite, for every model of the equator-pinned field and its chaos and every Upsilon_{gamma/2}."
+  - source: "Kupiainen-Rhodes-Vargas (2020), Theorem 2.4 and Section 2"
+    lean: "DOZZ.dozz_unitVolume"
+    note: "The unit-volume constant mu^s C_gamma / Gamma(s) equals the corresponding limit of the DOZZ formula at every point of the extended Seiberg domain, including the poles of Gamma(s)."
+  - source: "David-Kupiainen-Rhodes-Vargas (2016); Kupiainen-Rhodes-Vargas (2020), Section 2"
+    lean: "DOZZ.dozz_existence"
+    note: "Existence of Upsilon_{gamma/2}, of the equator-pinned Gaussian free field and of its Gaussian multiplicative chaos, for every 0 < gamma < 2."
+  - source: "Kupiainen-Rhodes-Vargas (2020), Theorem 3.5"
+    lean: "DOZZ.reflection_Rtheor_off_poles"
+    note: "R(alpha) = R^DOZZ(alpha) for gamma/2 < alpha < Q off the points where 2(Q - alpha)/gamma is a positive integer."
+  - source: "Kupiainen-Rhodes-Vargas (2020), Theorem 3.5"
+    lean: "DOZZ.reflection_Rtheor_punctured"
+    note: "At the excluded points, R - R^DOZZ tends to 0."
+
+acknowledgements: >-
+  Scott Armstrong was supported by the European Research Council (ERC) under
+  the European Union's Horizon Europe research and innovation programme
+  (grant agreement No. 101200828). Amélie Loher acknowledges support from the
+  Fondation Sciences Mathématiques de Paris. Built on Lean 4, Mathlib and
+  Lake, and checked with leanprover/comparator. The Kolmogorov-Chentsov
+  theorem is adapted from Rémy Degenne's Brownian motion project.

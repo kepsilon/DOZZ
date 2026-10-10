@@ -1,0 +1,21 @@
+{
+  "challenge_module": "comparators.Reflection.Challenge",
+  "solution_module": "comparators.Reflection.Solution",
+  "theorem_names": [
+    "ReflectionChallenge.reflection_Rtheor_off_poles",
+    "ReflectionChallenge.reflection_Rtheor_punctured",
+    "ReflectionChallenge.negativeConditionedBrownianLaw_exists",
+    "ReflectionChallenge.isLateralGMCOf_map_eq",
+    "ReflectionChallenge.reflectionData_exists",
+    "ReflectionChallenge.reflectionBarR_eq_of_isReflectionData",
+    "ReflectionChallenge.reflectionR_eq_of_isReflectionData",
+    "ReflectionChallenge.reflectionBarR_positive_finite"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}

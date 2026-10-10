@@ -1,0 +1,22 @@
+{
+  "challenge_module": "comparators.DOZZ.Challenge",
+  "solution_module": "comparators.DOZZ.Solution",
+  "theorem_names": [
+    "DOZZChallenge.dozz_formula",
+    "DOZZChallenge.dozz_unitVolume",
+    "DOZZChallenge.dozz_existence",
+    "DOZZChallenge.IsUpsilon.unique",
+    "DOZZChallenge.isCircleAverage_law",
+    "DOZZChallenge.equatorGFF_GMC_unique_ae",
+    "DOZZChallenge.equatorGFF_GMC_nontrivial",
+    "DOZZChallenge.equatorGFF_GMC_law_transport",
+    "DOZZChallenge.equatorGFF_extendedSeiberg_rho_moment"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}
