@@ -6,7 +6,7 @@ module
 
 public import DOZZ.GFFStructure.Defs
 public import DOZZ.GFF.RadialEnergy
-public import Mathlib.Analysis.SpecialFunctions.Integrals.PosLogEqCircleAverage
+public import Mathlib.Analysis.SpecialFunctions.Integrals.PosLog
 import Mathlib.Analysis.Calculus.BumpFunction.SmoothApprox
 import Mathlib.MeasureTheory.Measure.Haar.NormedSpace
 
